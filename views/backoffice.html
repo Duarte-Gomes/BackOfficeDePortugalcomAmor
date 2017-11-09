@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="text-center">Lista de Marcas</h1>
+    <div class="col-sm-12"> 
+        <table datatable="ng" class="row-border hover">
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>Categoria</td>
+                    <td>Sub-Categoria</td>
+                    <td>Concelho</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in marcasList">
+                    <td>{{item.marca.name}}</td>
+                    <td>{{item.marca.categoria}}</td>
+                    <td>{{item.marca.subCategoria}}</td>
+                    <td>{{item.marca.concelho}}</td>
+                    <td><i class="fa fa-pencil-square" aria-hidden="true"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
