@@ -1,0 +1,92 @@
+<div class="col-sm-12">    
+    <div class="form-group">
+        <label for="nome">Nome da marca</label>
+        <input type="text" ng-model="marca.nome" id="nome" class="form-control">
+    </div>
+</div>
+<div class="col-sm-6">
+    <div class="form-group">
+        <label>Categoria</label>
+        <select ng-model="marca.categoria" class="form-control" id="catselect">
+            <option 
+                ng-selected="categoria.name == x.local.name"
+                ng-repeat="x in categoriasList" 
+                ng-value="x.categoria.name">
+                    {{x.categoria.name}}
+            </option>
+        </select>
+    </div>
+</div>
+<div class="col-sm-6">
+    <div class="form-group">
+        <label>Sub-Categoria</label>
+        <select ng-model="marca.subCategoria" class="form-control" id="catselect">
+                <option 
+                ng-selected="subCategoria.name == x.subCategoria.name"
+                ng-repeat="x in subCategoriasList" 
+                ng-value="x.subCategoria.name">
+                {{x.subCategoria.name}}
+            </option>
+        </select>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="form-group">
+        <label>Descrição Pequena</label>
+        <textarea rows="2" ng-model="marca.desqPeq" id="descPeq" class="form-control"></textarea>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="form-group">
+        <label>Descrição Geral</label>
+        <textarea rows="4" ng-model="marca.desqGeral" id="descGeral" class="form-control"></textarea>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="form-group">
+        <label>Morada</label>
+        <input type="text" ng-model="marca.morada" id="morada" class="form-control">
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="form-group">
+        <label>Código Postal</label>
+        <input type="text" ng-model="marca.codigoPostal" id="codigoPostal" class="form-control">
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="form-group">
+        <label>Localidade</label>
+        <input type="text" ng-model="marca.localidade" id="localidade" class="form-control">
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="form-group">
+        <label>Concelho</label>
+        <input type="text" ng-model="marca.concelho" id="concelho" class="form-control">
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="form-group">
+        <label>Telefone</label>
+        <input type="text" ng-model="marca.telefone" id="telefone" class="form-control">
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="form-group">
+        <label>Telemovel</label>
+        <input type="text" ng-model="marca.telemovel" id="telemovel" class="form-control">
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="form-group">
+        <label>E-mail</label>
+        <input type="text" ng-model="marca.email" id="email" class="form-control">       
+    </div>
+</div>
+<div class="col-sm-6">
+    <div class="form-group">
+        <label>Website</label>
+        <input type="text" ng-model="marca.website" id="website" class="form-control">  
+    </div>
+</div>
