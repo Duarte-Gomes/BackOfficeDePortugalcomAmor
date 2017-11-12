@@ -9,7 +9,6 @@
         <label>Categoria</label>
         <select ng-model="marca.categoria" class="form-control" id="catselect">
             <option 
-                ng-selected="categoria.name == x.local.name"
                 ng-repeat="x in categoriasList" 
                 ng-value="x.categoria.name">
                     {{x.categoria.name}}
@@ -20,9 +19,8 @@
 <div class="col-sm-6">
     <div class="form-group">
         <label>Sub-Categoria</label>
-        <select ng-model="marca.subCategoria" class="form-control" id="catselect">
-                <option 
-                ng-selected="subCategoria.name == x.subCategoria.name"
+        <select ng-model="marca.subCategoria" class="form-control" id="subcatselect">
+            <option 
                 ng-repeat="x in subCategoriasList" 
                 ng-value="x.subCategoria.name">
                 {{x.subCategoria.name}}
