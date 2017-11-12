@@ -72,8 +72,9 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
         };
 
         $scope.getMarcaDetails = function(param) {
+            postKey = param;
             var record = $scope.marcasList.$getRecord(param);
-            //postIndex = $scope.marcasList.$indexFor(param); acho que nao vou precisar disto
+            postIdx = $scope.marcasList.$indexFor(param);
             $scope.marca = record.marca;
         };
 
