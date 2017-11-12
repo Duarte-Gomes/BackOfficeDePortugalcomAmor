@@ -1,3 +1,16 @@
+app.directive('fileModel',['$parse', function ($parse){
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.bind('change', function () {
+                $parse(attrs.fileModel)
+                .assign(scope, element[0].files[0])
+                scope.$apply();
+            })
+        }
+    }
+}]);
+
 app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', '$firebaseStorage', '$window',
     function($scope, categoriasList, subCategoriasList, marcasList, $firebaseStorage, $window) {
 
@@ -83,18 +96,70 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
             $scope.isDetails = true; */
             $window.location.assign('/');
         }
+
+        $scope.uploadLogo = function(file) {
+            var storageRef = firebase.storage().ref('FotosMarcas/' + postKey + '/' + file.name);
+            
+            var storage = $firebaseStorage(storageRef);
+            var uploadTask = storage.$put(file);
+
+            uploadTask.$complete(function(snapshot) {
+                $scope.marca.logo = snapshot.downloadURL;
+                $scope.marcasList.$save(postIdx).then(function() {
+                    $scope.getMarcaDetails(postKey);
+                });
+            });
+        };
         $scope.uploadFile1 = function(file) {
-            var storageRef = firebase.storage().ref('FotosMarcas/' + keypost + '/' + file.name);
+            var storageRef = firebase.storage().ref('FotosMarcas/' + postKey + '/' + file.name);
             
             var storage = $firebaseStorage(storageRef);
             var uploadTask = storage.$put(file);
 
             uploadTask.$complete(function(snapshot) {
                 $scope.marca.foto1 = snapshot.downloadURL;
+                $scope.marcasList.$save(postIdx).then(function() {
+                    $scope.getMarcaDetails(postKey);
+                });
+            });
+        };
+        $scope.uploadFile2 = function(file) {
+            var storageRef = firebase.storage().ref('FotosMarcas/' + postKey + '/' + file.name);
+            
+            var storage = $firebaseStorage(storageRef);
+            var uploadTask = storage.$put(file);
 
-                /* $scope.usersList.$save(postIndex).then(function() {
-                    $scope.getDetails(usersList[postIndex].$id);
-                }); */
+            uploadTask.$complete(function(snapshot) {
+                $scope.marca.foto2 = snapshot.downloadURL;
+                $scope.marcasList.$save(postIdx).then(function() {
+                    $scope.getMarcaDetails(postKey);
+                });
+            });
+        };
+        $scope.uploadFile3 = function(file) {
+            var storageRef = firebase.storage().ref('FotosMarcas/' + postKey + '/' + file.name);
+            
+            var storage = $firebaseStorage(storageRef);
+            var uploadTask = storage.$put(file);
+
+            uploadTask.$complete(function(snapshot) {
+                $scope.marca.foto3 = snapshot.downloadURL;
+                $scope.marcasList.$save(postIdx).then(function() {
+                    $scope.getMarcaDetails(postKey);
+                });
+            });
+        };
+        $scope.uploadFile4 = function(file) {
+            var storageRef = firebase.storage().ref('FotosMarcas/' + postKey + '/' + file.name);
+            
+            var storage = $firebaseStorage(storageRef);
+            var uploadTask = storage.$put(file);
+
+            uploadTask.$complete(function(snapshot) {
+                $scope.marca.foto4 = snapshot.downloadURL;
+                $scope.marcasList.$save(postIdx).then(function() {
+                    $scope.getMarcaDetails(postKey);
+                });
             });
         };
     }
