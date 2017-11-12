@@ -1,9 +1,11 @@
-app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', '$firebaseStorage',
-    function($scope, categoriasList, subCategoriasList, marcasList, $firebaseStorage) {
+app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', '$firebaseStorage', '$window',
+    function($scope, categoriasList, subCategoriasList, marcasList, $firebaseStorage, $window) {
 
         var postKey;
         var postIdx;
 
+        $scope.isList = true;
+        $scope.isDetails = false;
         $scope.categoriasList = {};
         $scope.subCategoriasList = {};
         $scope.marcasList = {};
@@ -63,12 +65,23 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
             
         };
 
+        $scope.getDetails = function(param) {
+            $scope.isList = false;
+            $scope.isDetails = true;
+            $scope.getMarcaDetails(param);
+        };
+
         $scope.getMarcaDetails = function(param) {
             var record = $scope.marcasList.$getRecord(param);
             //postIndex = $scope.marcasList.$indexFor(param); acho que nao vou precisar disto
             $scope.marca = record.marca;
         };
 
+        $scope.atras = function() {
+            /* $scope.isList = false;
+            $scope.isDetails = true; */
+            $window.location.assign('/');
+        }
         $scope.uploadFile1 = function(file) {
             var storageRef = firebase.storage().ref('FotosMarcas/' + keypost + '/' + file.name);
             
