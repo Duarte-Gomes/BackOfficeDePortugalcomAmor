@@ -1,25 +1,75 @@
 <div class="container">
-    <h1 class="text-center">Lista de Marcas</h1>
-    <div class="col-sm-12"> 
-        <table datatable="ng" class="row-border hover">
-            <thead>
-                <tr>
-                    <td>Nome</td>
-                    <td>Categoria</td>
-                    <td>Sub-Categoria</td>
-                    <td>Concelho</td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in marcasList">
-                    <td>{{item.marca.nome}}</td>
-                    <td>{{item.marca.categoria}}</td>
-                    <td>{{item.marca.subCategoria}}</td>
-                    <td>{{item.marca.concelho}}</td>
-                    <td><i class="fa fa-pencil-square" aria-hidden="true"></i></td>
-                </tr>
-            </tbody>
-        </table>
+    <div ng-show="isList">
+        <h1 class="text-center">Lista de Marcas</h1>
+        <div class="col-sm-12"> 
+            <table datatable="ng" class="row-border hover">
+                <thead>
+                    <tr>
+                        <td>Nome</td>
+                        <td>Categoria</td>
+                        <td>Sub-Categoria</td>
+                        <td>Concelho</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in marcasList">
+                        <td>{{item.marca.nome}}</td>
+                        <td>{{item.marca.categoria}}</td>
+                        <td>{{item.marca.subCategoria}}</td>
+                        <td>{{item.marca.concelho}}</td>
+                        <td>
+                            <button type="button" class="btn btn-success" ng-click="getDetails(item.$id)">
+                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div ng-show="isDetails">
+        <div class="row text-center">
+            <h3>Nova Marca</h3>
+        </div>
+        <div>  
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a data-target="#dadosmarca" aria-controls="dadosmarca" role="tab" data-toggle="tab">Dados Marca</a></li>
+                <li role="presentation"><a data-target="#imagens" aria-controls="imagens" role="tab" data-toggle="tab">Imagens</a></li>
+                <li role="presentation"><a data-target="#redessociais" aria-controls="redessociais" role="tab" data-toggle="tab">Redes Sociais</a></li>
+                <li role="presentation"><a data-target="#dadosfiscais" aria-controls="dadosfiscais" role="tab" data-toggle="tab">Dados Fiscais</a></li>
+                <li role="presentation"><a data-target="#settings" aria-controls="settings" role="tab" data-toggle="tab">Configurações</a></li>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="dadosmarca">
+                    <div ng-include="'views/submarca/dadosmarca.html'"></div>
+                </div>
+                
+                <div role="tabpanel" class="tab-pane" id="imagens">
+                    <div ng-include="'views/submarca/imagens.html'"></div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="redessociais">
+                    <div ng-include="'views/submarca/redessociais.html'"></div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="dadosfiscais">
+                    <div ng-include="'views/submarca/dadosfiscais.html'"></div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="settings">
+                    <div ng-include="'views/submarca/settings.html'"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-warning" ng-click="atras()">Voltar à Lista</button>
+            <button type="submit" class="btn btn-success" ng-click="saveNovaMarca()">Gravar Marca</button>
+        </div>
+        <div class="row" style="margin-bottom:20px"></div>
     </div>
 </div>

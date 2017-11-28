@@ -63,16 +63,6 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider) {
 			controller: 'BackOfficeCtrl',
 			controllerAs: 'backoffice'
 		})
-    /* .when('/backoffice', {
-        templateUrl: 'views/backoffice.html',
-        controller: 'BackOfficeCtrl',
-        controllerAs: 'backoffice',
-        resolve: {
-          "currentAuth": ["Auth", function(Auth) {
-            return Auth.$requireSignIn();
-          }]
-        }
-    }) */
     
     .otherwise({
         redirectTo: '/'
