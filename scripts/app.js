@@ -57,6 +57,11 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider) {
 			templateUrl: 'views/novaCategoria.html',
 			controller: 'BackOfficeCtrl',
 			controllerAs: 'backoffice'
+        })
+        .when('/contadores', {
+			templateUrl: 'views/contadores.html',
+			controller: 'BackOfficeCtrl',
+			controllerAs: 'backoffice'
 		})
     /* .when('/backoffice', {
         templateUrl: 'views/backoffice.html',

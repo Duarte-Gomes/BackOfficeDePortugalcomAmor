@@ -1,5 +1,5 @@
-app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', '$firebaseStorage',
-    function($scope, categoriasList, subCategoriasList, marcasList, $firebaseStorage) {
+app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', 'totalVisitCount', '$firebaseStorage',
+    function($scope, categoriasList, subCategoriasList, marcasList, totalVisitCount, $firebaseStorage) {
 
         var postKey;
         var postIdx;
@@ -7,6 +7,7 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
         $scope.categoriasList = {};
         $scope.subCategoriasList = {};
         $scope.marcasList = {};
+        $scope.totalVisitCount = {};
 
         categoriasList.$loaded().then(function() {  
                $scope.categoriasList = categoriasList;
@@ -34,6 +35,12 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
                 $scope.subCategoria = {};
             });
         };
+
+        totalVisitCount.$loaded().then(function() {
+            $scope.totalVisitCount = totalVisitCount;
+
+            $scope.totalCount = $scope.totalVisitCount.length;
+        });
 
         marcasList.$loaded().then(function() {  
             $scope.marcasList = marcasList;

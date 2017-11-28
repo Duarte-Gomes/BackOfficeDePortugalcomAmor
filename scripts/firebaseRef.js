@@ -13,22 +13,15 @@ app.factory("subCategoriasList", ["$firebaseArray",
 ]);
 
 app.factory("marcasList", ["$firebaseArray",
-function($firebaseArray) {
-    var ref = firebase.database().ref('Marcas');
-    return $firebaseArray(ref);
-}
-]);
-/* app.factory("Auth", ["$firebaseAuth",
-    function($firebaseAuth) {
-        return $firebaseAuth();
-    }
-]); */
-
-
-/* app.factory("usersList", ["$firebaseArray",
     function($firebaseArray) {
-        var ref = firebase.database().ref();
+        var ref = firebase.database().ref('Marcas');
         return $firebaseArray(ref);
     }
 ]);
- */
+
+app.factory("totalVisitCount", ["$firebaseArray",
+    function($firebaseArray) {
+        var ref = firebase.database().ref('TotalVisitCount');
+        return $firebaseArray(ref);
+    }
+]);
