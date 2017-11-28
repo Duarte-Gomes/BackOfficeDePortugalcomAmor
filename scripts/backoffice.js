@@ -24,6 +24,8 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
         $scope.marcasList = {};
         $scope.totalVisitCount = {};
 
+        $scope.marca = {};
+
         categoriasList.$loaded().then(function() {  
                $scope.categoriasList = categoriasList;
         });
@@ -96,6 +98,7 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
             var record = $scope.marcasList.$getRecord(param);
             postIdx = $scope.marcasList.$indexFor(param);
             $scope.marca = record.marca;
+            $scope.key = postKey;
         };
 
         $scope.atras = function() {

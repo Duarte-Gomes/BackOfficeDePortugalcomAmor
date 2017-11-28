@@ -6,18 +6,22 @@
                 <thead>
                     <tr>
                         <td>Nome</td>
+                        <td>E-mail</td>
                         <td>Categoria</td>
                         <td>Sub-Categoria</td>
                         <td>Concelho</td>
+                        <td>Contador</td>
                         <td></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="item in marcasList">
                         <td>{{item.marca.nome}}</td>
+                        <td>{{item.marca.email}}</td>
                         <td>{{item.marca.categoria}}</td>
                         <td>{{item.marca.subCategoria}}</td>
                         <td>{{item.marca.concelho}}</td>
+                        <td>{{item.marca.counter}}</td>
                         <td>
                             <button type="button" class="btn btn-success" ng-click="getDetails(item.$id)">
                                 <i class="fa fa-pencil-square" aria-hidden="true"></i>
