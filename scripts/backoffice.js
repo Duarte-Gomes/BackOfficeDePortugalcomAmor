@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', 'totalVisitCount', '$firebaseStorage',
-    function($scope, categoriasList, subCategoriasList, marcasList, totalVisitCount, $firebaseStorage) {
-=======
 app.directive('fileModel',['$parse', function ($parse){
     return {
         restrict: 'A',
@@ -15,9 +11,8 @@ app.directive('fileModel',['$parse', function ($parse){
     }
 }]);
 
-app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', '$firebaseStorage', '$window',
-    function($scope, categoriasList, subCategoriasList, marcasList, $firebaseStorage, $window) {
->>>>>>> 263785cc1d963663b96e6433b13e37b1ae78f223
+app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', 'totalVisitCount', '$firebaseStorage', '$window',
+    function($scope, categoriasList, subCategoriasList, marcasList, totalVisitCount, $firebaseStorage, $window) {
 
         var postKey;
         var postIdx;
