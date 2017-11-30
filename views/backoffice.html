@@ -42,6 +42,7 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a data-target="#dadosmarca" aria-controls="dadosmarca" role="tab" data-toggle="tab">Dados Marca</a></li>
                 <li role="presentation"><a data-target="#imagens" aria-controls="imagens" role="tab" data-toggle="tab">Imagens</a></li>
+                <li role="presentation"><a data-target="#videos" aria-controls="videos" role="tab" data-toggle="tab">Videos</a></li>
                 <li role="presentation"><a data-target="#redessociais" aria-controls="redessociais" role="tab" data-toggle="tab">Redes Sociais</a></li>
                 <li role="presentation"><a data-target="#dadosfiscais" aria-controls="dadosfiscais" role="tab" data-toggle="tab">Dados Fiscais</a></li>
                 <li role="presentation"><a data-target="#settings" aria-controls="settings" role="tab" data-toggle="tab">Configurações</a></li>
@@ -55,6 +56,10 @@
                 
                 <div role="tabpanel" class="tab-pane" id="imagens">
                     <div ng-include="'views/submarca/imagens.html'"></div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="videos">
+                    <div ng-include="'views/submarca/videos.html'"></div>
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="redessociais">
