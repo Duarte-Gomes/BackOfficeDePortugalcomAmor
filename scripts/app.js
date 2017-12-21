@@ -48,6 +48,11 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider) {
 			controller: 'BackOfficeCtrl',
 			controllerAs: 'backoffice'
 		})
+		.when('/textos', {
+			templateUrl: 'views/textos.html',
+			controller: 'BackOfficeCtrl',
+			controllerAs: 'backoffice'
+        })
 		.when('/novaMarca', {
 			templateUrl: 'views/novaMarca.html',
 			controller: 'BackOfficeCtrl',
