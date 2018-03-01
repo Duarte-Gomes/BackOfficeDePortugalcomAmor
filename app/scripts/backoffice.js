@@ -11,8 +11,8 @@ app.directive('fileModel',['$parse', function ($parse){
     }
 }]);
 
-app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', 'totalVisitCount', '$firebaseStorage', '$window',
-    function($scope, categoriasList, subCategoriasList, marcasList, totalVisitCount, $firebaseStorage, $window) {
+app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList', 'marcasList', '$firebaseStorage', '$window',
+    function($scope, categoriasList, subCategoriasList, marcasList, $firebaseStorage, $window) {
 
         var postKey;
         var postIdx;
@@ -22,7 +22,7 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
         $scope.categoriasList = {};
         $scope.subCategoriasList = {};
         $scope.marcasList = {};
-        $scope.totalVisitCount = {};
+        //$scope.totalVisitCount = {};
 
         $scope.marca = {};
 
@@ -53,11 +53,11 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
             });
         };
 
-        totalVisitCount.$loaded().then(function() {
+       /*  totalVisitCount.$loaded().then(function() {
             $scope.totalVisitCount = totalVisitCount;
 
             $scope.totalCount = $scope.totalVisitCount.length;
-        });
+        }); */
 
         marcasList.$loaded().then(function() {  
             $scope.marcasList = marcasList;
@@ -99,6 +99,19 @@ app.controller('BackOfficeCtrl', ['$scope', 'categoriasList', 'subCategoriasList
             postIdx = $scope.marcasList.$indexFor(param);
             $scope.marca = record.marca;
             $scope.key = postKey;
+        };
+
+        $scope.deleteIt = function(param) {
+            var tt = $scope.marcasList.$indexFor(param);
+            $scope.marcasList.$remove(tt).then(function() {
+                console.log("successfully deleted!");
+            })
+
+            /* var storageRef = firebase.storage().ref('FotosMarcas/' + param);
+            var storage = $firebaseStorage(storageRef);
+            var uploadTask = storage.$delete().then(function() {
+                console.log("successfully deleted!");
+              }); */
         };
 
         $scope.atras = function() {

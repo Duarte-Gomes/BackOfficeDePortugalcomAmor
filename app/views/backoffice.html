@@ -12,6 +12,7 @@
                         <td>Concelho</td>
                         <td>Contador</td>
                         <td></td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,11 @@
                         <td>
                             <button type="button" class="btn btn-success" ng-click="getDetails(item.$id)">
                                 <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" ng-click="deleteIt(item.$id)">
+                                <i class="fa fa-window-close" aria-hidden="true"></i>
                             </button>
                         </td>
                     </tr>
